@@ -10,7 +10,7 @@ class MMU extends Hardware_1.Hardware {
         this.LOB = 0x00;
         //UN-COMMENT A PROGRAM TO TEST
         // this.loadDefault();
-        this.loadSystemCall();
+        // this.loadSystemCall();
         // this.loadPowersProgram();
     }
     //calling MAR setter from memory instance
@@ -83,6 +83,14 @@ class MMU extends Hardware_1.Hardware {
             0xA2, 0x01, 0xFF, 0xAA, 0xEC, 0x42, 0x00, 0xD0, 0xF3, 0x00];
         for (let i = 0x0000; i < defaultProgram.length; i++) {
             this.writeImmediate(i, defaultProgram[i]);
+        }
+    }
+    loadProgram(program, vars, varStart) {
+        for (let i = 0; i < program.length; i++) {
+            this.writeImmediate(i, program[i]);
+        }
+        for (let j = varStart; j < vars.length; j++) {
+            this.writeImmediate(j, vars[j]);
         }
     }
     loadSystemCall() {

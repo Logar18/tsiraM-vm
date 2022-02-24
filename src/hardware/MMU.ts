@@ -16,7 +16,7 @@ export class MMU extends Hardware {
         //UN-COMMENT A PROGRAM TO TEST
 
         // this.loadDefault();
-        this.loadSystemCall();
+        // this.loadSystemCall();
         // this.loadPowersProgram();
 
     }
@@ -104,6 +104,15 @@ export class MMU extends Hardware {
             this.writeImmediate(i, defaultProgram[i]);
         }
         
+    }
+
+    loadProgram(program:number[], vars:number[], varStart:number) {
+        for(let i=0; i<program.length; i++) {
+            this.writeImmediate(i, program[i]);
+        }
+        for(let j=varStart; j<vars.length; j++) {
+            this.writeImmediate(j, vars[j]);
+        }
     }
 
     loadSystemCall() {

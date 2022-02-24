@@ -13,11 +13,11 @@ class Clock extends Hardware_1.Hardware {
     //this method sends a pulse to any component that is registered 
     //as a clock listener. 
     pulse() {
-        this._compARRAY.forEach((element) => {
-            element.pulse();
-        });
-        //this._CPU.pulse();
-        //this._MEMORY.pulse();
+        // this._compARRAY.forEach( (element) => {
+        //     element.pulse();
+        // })
+        this._CPU.pulse();
+        this._MEMORY.pulse();
     }
     cycleClock(interval) {
         setInterval(() => this.pulse(), interval);

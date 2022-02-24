@@ -19,11 +19,11 @@ export class Clock extends Hardware {
     //this method sends a pulse to any component that is registered 
     //as a clock listener. 
     pulse() {
-        this._compARRAY.forEach( (element) => {
-            element.pulse();
-        })
-        //this._CPU.pulse();
-        //this._MEMORY.pulse();
+        // this._compARRAY.forEach( (element) => {
+        //     element.pulse();
+        // })
+        this._CPU.pulse();
+        this._MEMORY.pulse();
     }
 
     public cycleClock(interval: number) {

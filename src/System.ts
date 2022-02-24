@@ -50,8 +50,15 @@ export class System extends Hardware {
     public stopSystem(): boolean {
         return false;
     }  
+
+    public loadProgram(program:number[], vars:number[], varStart:number) {
+        this._MMU.loadProgram(program, vars, varStart);
+        // this._MMU.memoryDump
+    }
 }
 
 
-let system: System = new System();
-
+// let system: System = new System();
+// let prog = [0xA9, 0x0A, 0x8D, 0x40, 0x00, 0xAC, 0x40, 0x00, 0xA2, 0x01, 0xFF, 0xA2, 0x02, 0xFF, 0x50, 0x00];
+// let vars = [0x0A, 0x48, 0x65, 0x6C, 0x6C, 0x6F, 0x20, 0x57, 0x6F, 0x72, 0x6C, 0x64, 0x21, 0x0A, 0x00];
+// system.loadProgram(prog, vars, 0x0050)
